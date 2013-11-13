@@ -1,4 +1,6 @@
 window.TodoItem = Backbone.Model.extend({
+  urlRoot: '/todos', 
+  
   toggleStatus: function(){
     if(this.get('status') == 'incomplete'){
       this.set({'status': 'complete'});
@@ -6,6 +8,6 @@ window.TodoItem = Backbone.Model.extend({
       this.set({'status': 'incomplete'});
     }
 
-    this.save();
+    this.save();  /* sync changes to server */
   }
 });

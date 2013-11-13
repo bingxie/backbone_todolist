@@ -31,7 +31,7 @@ body {
   border-bottom: 3px solid #e1d9d3;
   box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
   margin: 0 auto;
-  width: 500px;
+  width: 600px;
 }
 #app {
   background: image-url('bg-content.png') repeat;
@@ -43,9 +43,10 @@ h1 {
   background: image-url('bg-todo.png') 48px 0 repeat-y;
   font: bold 4em/80px $font-base;
   padding: 0 20px 0 70px;
-  text-align: right;
+  text-align: left;
   text-transform: lowercase;
 }
+
 h3 {
   background: image-url('bg-todo.png') 48px 0 repeat-y;
   font: normal 1.8em/38px $font-base;
@@ -55,12 +56,12 @@ h3 {
 #app div div:last-child h3 {
   padding-bottom: 10px;
 }
-h3 input {
+h3 input[type="checkbox"] {
   left: 16px;
   position: absolute;
   top: 12px;
 }
-h3 a {
+a.go {
   color: #be7837;
   display: block;
   font-size: 1.8em;
@@ -74,14 +75,20 @@ h3 a {
   top: 2px;
   width: 40px;
 }
-h3 a:hover,
-h3 a:focus {
+a.go:hover,
+a.go:focus {
   color: #8fc8d6;
 }
 .complete {
   color: #bbb;
   text-decoration: line-through;
+  a.go {
+    color: #bbb;
+  }
 }
-.complete a {
-  color: #bbb;
+
+input[type="text"] {
+  height: 25px;
+  width: 300px;
+  font-size: 18px;
 }

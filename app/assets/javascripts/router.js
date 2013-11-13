@@ -1,7 +1,8 @@
 window.TodoApp = new (Backbone.Router.extend({
   routes: {
     "": "index",
-    "todos/:id": "show"
+    "todos/:id": "show",
+    "todos/hide/:id": "hide"
   },
 
   initialize: function(){
@@ -21,5 +22,15 @@ window.TodoApp = new (Backbone.Router.extend({
 
   show: function(id){
     this.todoItems.focusOnTodoItem(id);
+  },
+
+  hide: function(id){
+    var hideTodoItem = this.todoItems.get(id);
+
+    hideTodoItem.destroy({  // destroy can trigger remove event on collection
+      success: function(){
+        console.log("destroy success");
+      }
+    });
   }
 }));
